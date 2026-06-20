@@ -57,6 +57,9 @@ export default function CustomerDashboard() {
   const [savedEvents, setSavedEvents] = useState([]);
   const ticketRef = useRef(null);
   const mountedRef = useRef(true);
+  const socketRef = useRef(null);
+  const joinedEventIdsRef = useRef([]);
+  const highlightTimeoutsRef = useRef({});
   const navigate = useNavigate();
 
   useEffect(() => {
