@@ -49,6 +49,7 @@ export default function CustomerDashboard() {
   const [selectedRegistrationId, setSelectedRegistrationId] = useState(null);
   const [highlightedEvents, setHighlightedEvents] = useState({});
   const [searchQuery, setSearchQuery] = useState(() => searchParams.get('q') || '');
+  const debouncedSearch = useDebounce(searchQuery, 500);
   const [selectedCategory, setSelectedCategory] = useState(() => searchParams.get('category') || '');
   const [isFetching, setIsFetching] = useState(false);
   const [registrationsError, setRegistrationsError] = useState('');
@@ -390,9 +391,9 @@ export default function CustomerDashboard() {
         },
       );
 
-      const data = await response.json();
+      const data = await res.json();
 
-      if (!response.ok) {
+      if (!res.ok) {
         throw new Error(data.message || "Failed to cancel registration");
       }
 
