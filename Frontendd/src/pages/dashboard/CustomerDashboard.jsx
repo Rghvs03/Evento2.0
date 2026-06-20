@@ -7,6 +7,7 @@ import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { Button } from '../../components/ui/button';
 import { useAuth } from '../../context/AuthContext';
+import toast from 'react-hot-toast';
 
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { API_BASE_URL } from '../../config';
